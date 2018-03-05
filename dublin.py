@@ -88,8 +88,15 @@ for i in range(vehicles_count):
     cars.append(Car())
 
 # simulation loop
-with open('out.txt', 'a') as output_file:
     for i in range(0, steps_count):
         for j in range(0, vehicles_count):
             for k in range(0, rides_count):
                 pass
+
+# writing output data to a file
+with open('out.txt', 'w') as output_file:
+    for car in cars:
+        output_file.write('%s ' % len(car.ride_idxs))
+        for idx in car.ride_idxs:
+            output_file.write('%s ' % idx)
+        output_file.write('\n')
